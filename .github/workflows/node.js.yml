@@ -38,5 +38,9 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    env:
+    - uses: actions/download-artifact@master
+      with:
+        name: webpack artifacts
+        path: public
+    - name: npm install, and test
       CI: true
